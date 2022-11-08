@@ -1,9 +1,8 @@
 # Conventional commits
 
-## Begin 
+## Begin
 
-* First commit of the project
-  * emoji: :tada:
+* First commit of the project :tada:
 
 ~~~properties
 :tada: initial commit
@@ -13,8 +12,7 @@
 
 ## Ignore
 
-* Ignore a file
-  * emoji: :see_no_evil:
+* Ignore a file :see_no_evil:
 
 ~~~properties
 :see_no_evil: chore(.gitignore):
@@ -32,15 +30,13 @@
 
 ## Refactor
 
-* Refactor code
-  * emoji: :recycle:
+* Refactor code :recycle:
 
 ~~~properties
 :recycle: refactor(clean code):
 ~~~
 
-* Move or rename a file
-  * emoji: :truck:
+* Move or rename a file :truck:
 
 ~~~properties
 :truck: refactor(rename file):
@@ -50,29 +46,25 @@
 :truck: refactor(move file):
 ~~~
 
-* Delete a file
-  * emoji: :fire:
+* Delete a file :fire:
 
 ~~~properties
 :fire: refactor(delete file):
 ~~~
 
-* Refactor for accessibility
-  * emoji: :wheelchair:
+* Refactor for accessibility :wheelchair:
 
 ~~~properties
 :wheelchair: refactor(accessibility):
 ~~~
 
-* Refactor to fix linting errors or warnings
-  * emoji: :rotating_light:
+* Refactor to fix linting errors or warnings :rotating_light:
 
 ~~~properties
 :rotating_light: refactor(linter): 
 ~~~
 
-* Refactor for performance
-  * emoji: :zap:
+* Refactor for performance :zap:
 
 ~~~properties
 :zap: perf:
@@ -82,81 +74,210 @@
 
 ## Style
 
-* Change CSS or CSS libraries code
-  * emoji: :art:
+* Change CSS or CSS libraries code :art:
 
 ~~~properties
 :art: style(code):
 ~~~
 
-* Add an image, icon or GIF
-  * emoji: :camera:
+* Add an image, icon or GIF :camera:
 
 ~~~properties
 :camera_flash: style(add image):
 ~~~
 
+* Adjust responsiveness :iphone:
+
 ~~~properties
 :iphone: style(responsiveness):
 ~~~
+
+* Related to animations :lipstick:
 
 ~~~properties
 :dizzy: style(animation):
 ~~~
 
+---
+
 ## Features
 
-* :sparkles: feat(new):
-* :construction: feat(in progress):
+* Add a new feature :sparkles:
 
-## Breaking changes
+~~~properties
+:sparkles: feat(new):
+~~~
 
-* :boom: feat(update):
-`<empty line separator>`
+* Add a feature that is not yet finished :construction:
+
+~~~properties
+:construction: feat(in progress):
+~~~
+
+* Add a feature with a breaking change :boom:
+
+~~~properties
+:boom: feat(update):
+<empty line to separate>
 BREAKING CHANGES:
+~~~
+
+---
 
 ## Text
 
-* :memo: chore(text):
-* :alien: chore(translation):
-* :bulb: chore(comments):
-* :closed_lock_with_key: chore(secrets):
+* Add or update documentation :books:
+
+~~~properties
+:books: docs(readme):
+~~~
+
+* Add or update comments in source code :bulb:
+
+~~~properties
+:bulb: chore(comments):
+~~~
+
+* Translate text :globe_with_meridians:
+
+~~~properties
+:globe_with_meridians: chore(translation):
+~~~
+
+* Add or update text and literals :memo:
+
+~~~properties
+:memo: chore(text):
+~~~
+
+* Add or update password or secret :closed_lock_with_key:
+
+~~~properties
+:closed_lock_with_key: chore(secrets):
+~~~
+
+---
 
 ## Fixes
 
-* :ambulance: fix(critical):
-* :goal_net: fix(error):
-* :adhesive_bandage: fix(minor):
-* :bug: fix(bug):
-* :lock: fix(security):
+* Critical hotfix :ambulance:
+
+~~~properties
+:ambulance: fix(critical):
+~~~
+
+* Standard hotfix :wrench:
+
+~~~properties
+:wrench: fix(error):
+~~~
+
+* Minor hotfix :adhesive_bandage:
+
+~~~properties
+:adhesive_bandage: fix(minor):
+~~~
+
+* Fix a bug :bug:
+
+~~~properties
+:bug: fix(bug):
+~~~
+
+* Fix security issues :lock:
+
+~~~properties
+:lock: fix(security):
+~~~
+
+---
 
 ## Devops
 
-* :construction_worker: ops:
-* :whale: ops(docker):
+* Anything related to infrastructure or deployment :construction_worker:
 
-## Documentation
+~~~properties
+:construction_worker: ops:
+~~~
 
-* :books: docs(readme):
+* Related to docker :whale:
+
+~~~properties
+:whale: ops(docker):
+~~~
+
+---
 
 ## Package JSON
 
-* :heavy_minus_sign: build(dependency):
-* :heavy_plus_sign: build(dependency):
-* :package: build(script):
-* :bookmark: build(release):
+* Remove a dependency :heavy_minus_sign:
+
+~~~properties
+:heavy_minus_sign: build(dependency):
+~~~
+
+* Add a dependency :heavy_plus_sign:
+
+~~~properties
+:heavy_plus_sign: build(dependency):
+~~~
+
+* Scripts :package:
+
+~~~properties
+:package: build(script):
+~~~
+
+* New version :bookmark:
+
+~~~properties
+:bookmark: build(release):
+~~~
+
+---
 
 ## Testing
 
-* :white_check_mark: test(passing test):
-* :clown_face: test(mock):
-* :test_tube: test(failing test):
+* Passing tests :white_check_mark:
+
+~~~properties
+:white_check_mark: test(passing test):
+~~~
+
+* Mocking data :clown_face:
+
+~~~properties
+:clown_face: test(mock):
+~~~
+
+* Fail tests :test_tube:
+
+~~~properties
+:test_tube: test(failing test):
+~~~
+
+---
 
 ## Git
 
-* :twisted_rightwards_arrows: merge:
-* :rewind: ops(revert):
+* Merge branch :twisted_rightwards_arrows:
+
+~~~properties
+:twisted_rightwards_arrows: merge:
+~~~
+
+* Revert changes :rewind:
+
+~~~properties
+:rewind: ops(revert):
+~~~
+
+---
 
 ## Database
 
-* :card_file_box: db:
+* Add or update database schema :card_file_box:
+
+~~~properties
+:card_file_box: db:
+~~~
