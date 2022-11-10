@@ -7,6 +7,7 @@
   - [1. Useful general knowledge](#1-useful-general-knowledge)
     - [nullish coalescing operator](#nullish-coalescing-operator)
     - [slice](#slice)
+    - [Short-circuiting](#short-circuiting)
   - [2. Objects](#2-objects)
     - [Copying objects](#copying-objects)
     - [Object vectors](#object-vectors)
@@ -77,6 +78,29 @@ const sliced = arr.slice(firstIncludedIndex, firstExcludedIndex);
 
 const str = '12345';
 const sliced = str.slice(1, 3); // '23'
+~~~
+
+### Short-circuiting
+
+~~~js
+// Short-circuiting with logical AND (&&)
+
+const circuit1 = 0 && 42; // 0
+
+// Whatever you compare with 0, && will return 0
+
+const curcuit2 = 42 && 0; // 0
+
+// Short-circuiting with logical OR (||)
+
+const circuit3 = 0 || 42; // 42
+
+//function
+
+const funcA = () => false;
+const funcB = () => 42;
+const circuit4 = funcA() || funcB(); // 42
+const circuit5 = funcA() && funcB(); // false
 ~~~
 
 ## 2. Objects
