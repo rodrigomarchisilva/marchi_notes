@@ -107,3 +107,34 @@ test('number of assertions', () => {
   expect(button).toHaveAttribute('disabled');
 });
 ~~~
+
+### Add scripts to package.json
+
+~~~json
+"scripts": {
+  "test": "react-scripts test --detectOpenHandles --watchAll=false",
+  "test:watch": "react-scripts test --detectOpenHandles",
+  "coverage": "react-scripts test --detectOpenHandles --coverage --watchAll=false",
+  "coverage:watch": "react-scripts test --detectOpenHandles --coverage",
+},
+"jest": {
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/**/*.d.ts"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": 80
+    }
+  },
+}
+~~~
+
+> - `--detectOpenHandles` is used to detect open handles that are keeping Jest from exiting cleanly.
+> - `--watchAll` is used to run tests in watch mode.
+> - `--coverage` is used to generate a coverage report.
+> - `collectCoverageFrom` is used to specify which files Jest should collect coverage from.
+> - `coverageThreshold` is used to specify the minimum coverage thresholds for each file type.
