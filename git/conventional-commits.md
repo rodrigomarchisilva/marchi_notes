@@ -98,7 +98,7 @@
 :iphone: style(responsiveness):
 ~~~
 
-* Related to animations :lipstick:
+* Related to animations :dizzy:
 
 ~~~properties
 :dizzy: style(animation):
