@@ -80,6 +80,12 @@
 :art: style(code):
 ~~~
 
+* Deal with formatting tools such as ESLint and Prettier :lipstick:
+
+~~~properties
+:lipstick: style(formatting):
+~~~
+
 * Add an image, icon or GIF :camera:
 
 ~~~properties
