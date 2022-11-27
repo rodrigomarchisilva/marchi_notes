@@ -31,7 +31,7 @@ npx eslint --init
 - Select `JavaScript` as configuration file format;
 - Finally, select `Yes` to install dependencies and `npm` as package manager.
 
-## eslintrc.js
+### eslintrc.js
 
 - Create a file named `.eslintrc.js` in the root of the project and add the following content:
 
@@ -79,4 +79,18 @@ npm i -D prettier eslint-plugin-prettier eslint-config-prettier
   "source.fixAll.eslint": true,
   "source.fixAll": true
 },
+~~~
+
+## Prettier
+
+- Create a file named `.prettierrc` in the root of the project and add the following content:
+
+~~~json
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "tabWidth": 2
+}
 ~~~
