@@ -80,6 +80,31 @@ test('mock function', () => {
 });
 ~~~
 
+### Restore mock functions
+
+~~~js
+test('restore mock function', () => {
+  const componentDidMount = jest.spyOn(Component.prototype, 'componentDidMount');
+  componentDidMount.mockImplementation(() => {});
+  render(<Component />);
+  expect(componentDidMount).toHaveBeenCalledTimes(1);
+  componentDidMount.mockRestore();
+});
+
+// or
+
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
+// or on jest.config.js
+{
+  ...
+  restoreMocks: true,
+  ...
+}
+~~~
+
 ### Getting elements that load async
 
 ~~~js
@@ -112,6 +137,7 @@ test('number of assertions', () => {
 
 ~~~json
 "scripts": {
+  "snap:reset": "jest -u",
   "test": "react-scripts test --detectOpenHandles --watchAll=false",
   "test:watch": "react-scripts test --detectOpenHandles",
   "coverage": "react-scripts test --detectOpenHandles --coverage --watchAll=false",
