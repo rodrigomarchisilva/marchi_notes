@@ -86,10 +86,10 @@
 :lipstick: style(formatting):
 ~~~
 
-* Add an image, icon or GIF :camera:
+* Add an image, icon or GIF :framed_picture:
 
 ~~~properties
-:camera_flash: style(add image):
+:framed_picture: style(add image):
 ~~~
 
 * Adjust responsiveness :iphone:
@@ -260,6 +260,12 @@ BREAKING CHANGES:
 
 ~~~properties
 :test_tube: test(failing test):
+~~~
+
+* Add or update snapshots :camera_flash:
+
+~~~properties
+:camera_flash: test(snapshot):
 ~~~
 
 ---
