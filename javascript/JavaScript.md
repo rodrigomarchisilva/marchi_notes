@@ -5,6 +5,9 @@
 - [JavaScript](#javascript)
   - [Index](#index)
   - [1. Useful general knowledge](#1-useful-general-knowledge)
+    - [finding prime numbers](#finding-prime-numbers)
+    - [Fibonacci with performance](#fibonacci-with-performance)
+    - [charCode (ASCII)](#charcode-ascii)
     - [nullish coalescing operator](#nullish-coalescing-operator)
     - [slice](#slice)
     - [Short-circuiting](#short-circuiting)
@@ -56,6 +59,56 @@
     - [axios](#axios)
 
 ## 1. Useful general knowledge
+
+### finding prime numbers
+
+~~~js
+const isPrime = (number) => {
+  let output = number > 1;
+  let index = 2;
+  while (index < number && output) {
+    output = number % index === 0;
+    index += 1;
+  }
+  return output;
+};
+~~~
+
+### Fibonacci with performance
+
+~~~js
+const fib = (n) => {
+  let [prev, curr] = [-1, 1];
+
+  for(let i = 0; i < n; i++){
+    const sum = prev + curr;
+    prev = curr;
+    curr = sum;
+  }
+
+  return curr;
+};
+~~~
+
+### charCode (ASCII)
+
+Identify charCode from a char inside a string
+
+~~~js
+const string = 'Javascript';
+const charJCode = string.charCodeAt(0); // 74
+~~~
+
+Identify char from a charCode
+
+~~~js
+const charCode = 74;
+const char = String.fromCharCode(charCode); // 'J'
+~~~
+
+> - Capital letters go from 65 to 90
+> - Lowercase letters go from 97 to 122
+> - Numbers go from 48 to 57
 
 ### nullish coalescing operator
 
