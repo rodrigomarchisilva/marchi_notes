@@ -25,6 +25,55 @@ describe('<Component />', () => {
 
 > You may use as many `describe` blocks as you want and either it or test inside them.
 
+### Queries
+
+type | 0 matches | 1 match | 2+ matches | retry (async)
+--- | --- | --- | --- | ---
+getBy :adult: | :x: *throw* **error** | :heavy_check_mark: *return* `element` | :x: *throw* **error** | :x: no
+getAllBy :family_man_woman_girl_boy: | :x: *throw* **error** | :heavy_check_mark: *return* `array` | :heavy_check_mark: *return* `array` | :x: no
+queryBy :adult: | :heavy_check_mark: *return* `null` | :heavy_check_mark: *return* `element` | :x: *throw* **error** | :x: no
+queryAllBy :family_man_woman_girl_boy: | :heavy_check_mark: *return* `[]` | :heavy_check_mark: *return* `array` | :heavy_check_mark: *return* `array` | :x: no
+findBy :adult: | :x: *throw* **error** | :heavy_check_mark: *return* `element` | :x: *throw* **error** | :heavy_check_mark: yes
+findAllBy :family_man_woman_girl_boy: | :x: *throw* **error** | :heavy_check_mark: *return* `array` | :heavy_check_mark: *return* `array` | :heavy_check_mark: yes
+
+### screen queries (by order of preference)
+
+~~~js
+// good in most cases
+screen.getByRole('button', { name: /submit/i });
+
+// for form elements
+screen.getByLabelText('label');
+
+// only if there is no label
+screen.getByPlaceholderText('placeholder');
+
+// outside of form elements (e.g. <div>, <span>, <p>)
+screen.getByText('text');
+
+// when there are components filled with values
+screen.getByDisplayValue('value');
+
+
+screen.getByAltText('alt');
+screen.getByTitle('title');
+screen.getByTestId('test-id');
+~~~
+
+### Most frequent user events
+
+~~~js
+userEvent.click(element);
+userEvent.dblClick(element);
+userEvent.type(element, 'text');
+userEvent.tab();
+userEvent.hover(element);
+userEvent.unhover(element);
+userEvent.selectOptions(element, 'value');
+userEvent.clear(element);
+userEvent.upload(element, file);
+~~~
+
 ### Render and Screen
 
 ~~~js
@@ -105,13 +154,27 @@ afterEach(() => {
 }
 ~~~
 
-### Getting elements that load async
+### Working with async code
+
+Use async/await and `findBy` methods.
 
 ~~~js
 test('async elements', async () => {
   render(<Component />);
   const element = await screen.findByText(/async/i);
   expect(element).toBeInTheDocument();
+});
+~~~
+
+Or use `waitFor` method.
+
+~~~js
+test('async elements', () => {
+  render(<Component />);
+  return waitFor(() => {
+    const element = screen.getByText(/async/i);
+    expect(element).toBeInTheDocument();
+  });
 });
 ~~~
 
