@@ -49,18 +49,18 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 12,
+    ecmaFeatures: { jsx: true },
+    ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
-  rules: {
-  },
+  plugins: ['react', 'react-hooks', 'prettier'],
+  rules: { 'react/react-in-jsx-scope': 'off' },
 };
 ~~~
 
@@ -96,25 +96,15 @@ module.exports = {
 }
 ~~~
 
+- Install eslint extension for vscode if not already installed.
+
+## Prettier
+
 - Use the following command to install the dependencies:
 
 ~~~properties
 npm i -D prettier eslint-plugin-prettier eslint-config-prettier
 ~~~
-
-- Install eslint extension for vscode if not already installed.
-
-- On VSCode settings, add the following if you want to format on save:
-
-~~~json
-// Format on save
-"editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true,
-  "source.fixAll": true
-},
-~~~
-
-## Prettier
 
 - Create a file named `.prettierrc.json` in the root of the project and add the following content:
 
@@ -128,8 +118,42 @@ npm i -D prettier eslint-plugin-prettier eslint-config-prettier
 }
 ~~~
 
+- New version of config file:
+
+~~~json
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "htmlWhitespaceSensitivity": "ignore",
+  "insertPragma": false,
+  "jsxSingleQuote": false,
+  "proseWrap": "always",
+  "quoteProps": "as-needed",
+  "requirePragma": false,
+  "semi": true,
+  "useTabs": false,
+  "vueIndentScriptAndStyle": false,
+  "embeddedLanguageFormatting": "off"
+}
+~~~
+
 - Add the following script to run prettier formatting your code:
 
 ~~~json
 "format": "prettier --write ."
+~~~
+
+- On VSCode settings, add the following if you want to format on save:
+
+~~~json
+// Format on save
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true,
+  "source.fixAll": true
+},
 ~~~
