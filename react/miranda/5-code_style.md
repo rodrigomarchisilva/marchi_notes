@@ -40,6 +40,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
     jest: true,
   },
   extends: [
@@ -125,4 +126,10 @@ npm i -D prettier eslint-plugin-prettier eslint-config-prettier
   "printWidth": 80,
   "tabWidth": 2
 }
+~~~
+
+- Add the following script to run prettier formatting your code:
+
+~~~json
+"format": "prettier --write ."
 ~~~
