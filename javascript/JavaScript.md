@@ -5,8 +5,10 @@
 - [JavaScript](#javascript)
   - [Index](#index)
   - [1. Useful general knowledge](#1-useful-general-knowledge)
+    - [Creating arrays of number sequences](#creating-arrays-of-number-sequences)
     - [finding prime numbers](#finding-prime-numbers)
     - [Fibonacci with performance](#fibonacci-with-performance)
+    - [Finding divisors](#finding-divisors)
     - [charCode (ASCII)](#charcode-ascii)
     - [nullish coalescing operator](#nullish-coalescing-operator)
     - [slice](#slice)
@@ -60,6 +62,16 @@
 
 ## 1. Useful general knowledge
 
+### Creating arrays of number sequences
+
+~~~js
+const arrayLength = 5;
+const array1 = [...Array(arrayLength + 1).keys()].slice(1);
+const array2 = Array.from({ length: arrayLength }, (_, i) => i + 1);
+const array3 = Array(arrayLength).fill().map((_, i) => i + 1);
+const array4 = Array.from(Array(arrayLength), (_, i) => i + 1)
+~~~
+
 ### finding prime numbers
 
 ~~~js
@@ -88,6 +100,23 @@ const fib = (n) => {
 
   return curr;
 };
+~~~
+
+### Finding divisors
+
+~~~js
+const findDivisors = (num) => {
+    let divisors = [];
+    for (let i = 1; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            divisors.push(i);
+            if (i !== num / i) {
+                divisors.push(num / i);
+            }
+        }
+    }
+    return divisors;
+}
 ~~~
 
 ### charCode (ASCII)
