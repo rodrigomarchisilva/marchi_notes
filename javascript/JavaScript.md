@@ -5,10 +5,10 @@
 - [JavaScript](#javascript)
   - [Index](#index)
   - [1. Useful general knowledge](#1-useful-general-knowledge)
-    - [Creating arrays of number sequences](#creating-arrays-of-number-sequences)
-    - [finding prime numbers](#finding-prime-numbers)
-    - [Fibonacci with performance](#fibonacci-with-performance)
+    - [Creating arrays with number sequences](#creating-arrays-with-number-sequences)
+    - [Finding prime numbers](#finding-prime-numbers)
     - [Finding divisors](#finding-divisors)
+    - [Fibonacci](#fibonacci)
     - [charCode (ASCII)](#charcode-ascii)
     - [nullish coalescing operator](#nullish-coalescing-operator)
     - [slice](#slice)
@@ -62,17 +62,29 @@
 
 ## 1. Useful general knowledge
 
-### Creating arrays of number sequences
+### Creating arrays with number sequences
 
 ~~~js
+// Let's say you want to create an array with the numbers 1 to 5.
 const arrayLength = 5;
+
 const array1 = [...Array(arrayLength + 1).keys()].slice(1);
 const array2 = Array.from({ length: arrayLength }, (_, i) => i + 1);
-const array3 = Array(arrayLength).fill().map((_, i) => i + 1);
+const array3 = Array(arrayLength).fill(1).map((e, i) => e + i);
 const array4 = Array.from(Array(arrayLength), (_, i) => i + 1)
+
+// result = [1, 2, 3, 4, 5]
+
+// Let's say you want to create an array with numbers from 5 to 10.
+const arrayLength = 5;
+
+const array1 = [...Array(arrayLength + 1).keys()].map((i) => i + 5);
+const array2 = Array.from({ length: arrayLength }, (_, i) => i + 5);
+const array3 = Array(arrayLength).fill(5).map((e, i) => e + i);
+const array4 = Array.from(Array(arrayLength), (_, i) => i + 5)
 ~~~
 
-### finding prime numbers
+### Finding prime numbers
 
 ~~~js
 const isPrime = (number) => {
@@ -83,22 +95,6 @@ const isPrime = (number) => {
     index += 1;
   }
   return output;
-};
-~~~
-
-### Fibonacci with performance
-
-~~~js
-const fib = (n) => {
-  let [prev, curr] = [-1, 1];
-
-  for(let i = 0; i < n; i++){
-    const sum = prev + curr;
-    prev = curr;
-    curr = sum;
-  }
-
-  return curr;
 };
 ~~~
 
@@ -117,6 +113,22 @@ const findDivisors = (num) => {
     }
     return divisors;
 }
+~~~
+
+### Fibonacci
+
+~~~js
+const fib = (n) => {
+  let [prev, curr] = [-1, 1];
+
+  for(let i = 0; i < n; i++){
+    const sum = prev + curr;
+    prev = curr;
+    curr = sum;
+  }
+
+  return curr;
+};
 ~~~
 
 ### charCode (ASCII)
