@@ -33,7 +33,7 @@
 * Refactor code :recycle:
 
 ~~~properties
-:recycle: refactor(clean code):
+:recycle: refactor(cleaner code):
 ~~~
 
 * Move or rename a file :truck:
@@ -61,7 +61,7 @@
 * Refactor to fix linting errors or warnings :rotating_light:
 
 ~~~properties
-:rotating_light: refactor(linter): 
+:rotating_light: refactor(ESLint): 
 ~~~
 
 * Refactor for performance :zap:
@@ -77,19 +77,19 @@
 * Change CSS or CSS libraries code :art:
 
 ~~~properties
-:art: style(code):
+:art: style(UI):
 ~~~
 
-* Deal with formatting tools such as ESLint and Prettier :lipstick:
+* Deal with formatting tools such as Prettier :lipstick:
 
 ~~~properties
-:lipstick: style(formatting):
+:lipstick: style(Prettier):
 ~~~
 
 * Add an image, icon or GIF :framed_picture:
 
 ~~~properties
-:framed_picture: style(add image):
+:framed_picture: style(image):
 ~~~
 
 * Adjust responsiveness :iphone:
@@ -101,7 +101,7 @@
 * Related to animations :dizzy:
 
 ~~~properties
-:dizzy: style(animation):
+:dizzy: style(animations/transitions):
 ~~~
 
 ---
