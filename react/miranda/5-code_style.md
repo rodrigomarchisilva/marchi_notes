@@ -33,41 +33,10 @@ npx eslint --init
 
 ### eslintrc.js
 
-- Create a file named `.eslintrc.js` in the root of the project and add the following content:
-
-~~~js
-module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-    jest: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:prettier/recommended',
-  ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    ecmaFeatures: { jsx: true },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: ['react', 'react-hooks', 'prettier'],
-  rules: { 'react/react-in-jsx-scope': 'off' },
-};
-~~~
-
-### another approach for eslintrc.json
+- Create a file named `.eslintrc.json` in the root of the project and add the following content:
 
 ~~~json
-{
+module.exports = {
   "env": {
     "browser": true,
     "es2021": true,
@@ -76,24 +45,34 @@ module.exports = {
   },
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
+    // "plugin:@typescript-eslint/eslint-recommended",
+    // "plugin:@typescript-eslint/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "parser": "@typescript-eslint/parser",
+  "parser": "@babel/eslint-parser",
+  // "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    // "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "prettier"
+  ],
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }]
-  }
-}
+    // "prettier/prettier": ["error", { "singleQuote": true }],
+    "react/react-in-jsx-scope": "off"
+  },
+};
 ~~~
 
 - Install eslint extension for vscode if not already installed.
@@ -110,35 +89,23 @@ npm i -D prettier eslint-plugin-prettier eslint-config-prettier
 
 ~~~json
 {
+  // "arrowParens": "always",
+  // "bracketSpacing": true,
+  // "endOfLine": "lf",
+  // "htmlWhitespaceSensitivity": "ignore",
+  // "insertPragma": false,
+  // "jsxSingleQuote": false,
+  // "proseWrap": "always",
+  // "quoteProps": "as-needed",
+  // "requirePragma": false,
+  // "useTabs": false,
+  // "vueIndentScriptAndStyle": false,
+  // "embeddedLanguageFormatting": "off",
   "semi": true,
   "singleQuote": true,
   "trailingComma": "all",
   "printWidth": 80,
   "tabWidth": 2
-}
-~~~
-
-- New version of config file:
-
-~~~json
-{
-  "singleQuote": true,
-  "trailingComma": "all",
-  "printWidth": 80,
-  "tabWidth": 2,
-  "arrowParens": "always",
-  "bracketSpacing": true,
-  "endOfLine": "lf",
-  "htmlWhitespaceSensitivity": "ignore",
-  "insertPragma": false,
-  "jsxSingleQuote": false,
-  "proseWrap": "always",
-  "quoteProps": "as-needed",
-  "requirePragma": false,
-  "semi": true,
-  "useTabs": false,
-  "vueIndentScriptAndStyle": false,
-  "embeddedLanguageFormatting": "off"
 }
 ~~~
 
