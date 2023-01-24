@@ -17,6 +17,8 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 ~~~
 
+> Note: `end_of_line` is set to `crlf` because I'm using Windows. If you're using Linux or Mac, change it to `lf`. This config carries over to Prettier, unless overridden.
+
 ## ESLint
 
 ~~~properties
@@ -91,7 +93,6 @@ npm i -D prettier eslint-plugin-prettier eslint-config-prettier
 {
   // "arrowParens": "always",
   // "bracketSpacing": true,
-  // "endOfLine": "lf",
   // "htmlWhitespaceSensitivity": "ignore",
   // "insertPragma": false,
   // "jsxSingleQuote": false,
@@ -106,6 +107,14 @@ npm i -D prettier eslint-plugin-prettier eslint-config-prettier
   "trailingComma": "all",
   "printWidth": 80,
   "tabWidth": 2
+}
+~~~
+
+- Create a file name `.babelrc.json` in the root of the project and add the following content:
+
+~~~json
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
 ~~~
 
