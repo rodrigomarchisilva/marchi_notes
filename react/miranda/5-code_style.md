@@ -28,7 +28,7 @@ npx eslint --init
 - Select `To check syntax and find problems`;
 - Select `JavaScript modules (import/export)`;
 - Select `React`;
-- Select `No` for TypeScript;
+- Select `No` for TypeScript; (if you want to use TypeScript, select `Yes` and follow the instructions to install the dependencies);
 - Press `a` to select node and browser, followed by `Enter`;
 - Select `JavaScript` as configuration file format;
 - Finally, select `Yes` to install dependencies and `npm` as package manager.
