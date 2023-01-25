@@ -218,7 +218,7 @@ BREAKING CHANGES:
 
 ---
 
-## Package JSON
+## Package JSON and config files
 
 * Remove a dependency :heavy_minus_sign:
 
@@ -242,6 +242,12 @@ BREAKING CHANGES:
 
 ~~~properties
 :bookmark: build(release):
+~~~
+
+* Update config files :gear:
+
+~~~properties
+:gear: build(config):
 ~~~
 
 ---
