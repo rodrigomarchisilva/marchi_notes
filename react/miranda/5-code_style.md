@@ -84,7 +84,7 @@ module.exports = {
 - Use the following command to install the dependencies:
 
 ~~~properties
-npm i -D prettier eslint-plugin-prettier eslint-config-prettier
+npm i -D prettier eslint-plugin-prettier eslint-config-prettier @babel/core @babel/eslint-plugin @babel/eslint-parser
 ~~~
 
 - Create a file named `.prettierrc.json` in the root of the project and add the following content:
