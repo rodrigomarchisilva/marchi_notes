@@ -36,7 +36,7 @@
 :recycle: refactor(cleaner code):
 ~~~
 
-* Move or rename a file :truck:
+* Move, rename or change file extension :truck:
 
 ~~~properties
 :truck: refactor(rename file):
@@ -44,6 +44,10 @@
 
 ~~~properties
 :truck: refactor(move file):
+~~~
+
+~~~properties
+:truck: refactor(extension):
 ~~~
 
 * Delete a file :fire:
