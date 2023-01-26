@@ -1,6 +1,6 @@
 # Stateful
 
-## Class Component with binded function
+## Class Component with bound function
 
 You need to bind the standard function, because it has a this context, otherwise it will not have access to the class context. You also need a constructor to bind the function and declare the state.
 
