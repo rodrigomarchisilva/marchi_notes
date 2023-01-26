@@ -11,13 +11,11 @@ root = true
 [*]
 indent_style = space
 indent_size = 2
-end_of_line = crlf
+end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 ~~~
-
-> Note: `end_of_line` is set to `crlf` because I'm using Windows. If you're using Linux or Mac, change it to `lf`. This config carries over to Prettier, unless overridden.
 
 ## ESLint
 
