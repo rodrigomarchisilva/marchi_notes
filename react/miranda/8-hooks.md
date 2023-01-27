@@ -1,5 +1,7 @@
 # Hooks
 
+Hooks should be used only outside of blocks, loops, and conditionals, in the top level of the functional component.
+
 ## useState
 
 It replaces the `this.state` and `this.setState` from the class component.
@@ -29,3 +31,18 @@ useEffect(() => { return () => {componentWillUnmount} }, []);
 useEffect(() => () => {componentWillUnmount}, []); // shorter version of above
 useEffect(() => () => {componentWillUnmount}, [state]); // runs componentWillUnmount every time state changes
 ~~~
+
+## useCallback
+
+It caches the function so it doesn't re-create it every time the component re-renders.
+
+~~~js
+const handleClick = useCallback(() => {
+  // do something
+}, [someDependency]);
+
+return <ChildComponent onClick={handleClick} />
+~~~
+
+> - Mainly used when passing a callback function to a child component to avoid unnecessary re-renders.
+> - It can be used without dependencies, using prevState instead of state.
