@@ -46,3 +46,37 @@ return <ChildComponent onClick={handleClick} />
 
 > - Mainly used when passing a callback function to a child component to avoid unnecessary re-renders.
 > - It can be used without dependencies, using prevState instead of state.
+
+## useMemo
+
+It caches the value so it doesn't re-calculate it every time the component re-renders. It's similar to `useCallback` but for values instead of functions.
+
+~~~js
+const [apiData, setApiData] = useState([]);
+const [inputValue, setInputValue] = useState('');
+
+useEffect(() => {
+  fetch('https://api.example.com')
+    .then(response => response.json())
+    .then(data => setApiData(data));
+}, []);
+
+const handleInputChange = useCallback(({target: { value }}) => {
+  setInputValue(value);
+}, []);
+
+const apiData = useMemo(() => {
+  return apiData.map(item => <li>{item}</li>);
+}, [apiData]);
+
+return (
+  <div>
+    <input type="text" value={inputValue} onChange={handleInputChange} />
+    <ul>
+      {apiData}
+    </ul>
+  </div>
+);
+~~~
+
+> Could be used to avoid unnecessary re-renders when changing the state of an input.
