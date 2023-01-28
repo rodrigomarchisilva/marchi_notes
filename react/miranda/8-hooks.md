@@ -80,3 +80,35 @@ return (
 ~~~
 
 > Could be used to avoid unnecessary re-renders when changing the state of an input.
+
+## useRef
+
+Create a reference that is retained across renders. It returns an object with a single property, `current`, which you can update to store a value.
+
+~~~js
+// Storing a reference to a DOM element
+const inputRef = useRef(null);
+
+const handleClick = () => {
+  inputRef.current.focus();
+};
+
+return (
+  <>
+    <input ref={inputRef} type="text" />
+    <button onClick={handleClick}>Focus Input</button>
+  </>
+);
+
+// Storing a reference to a JavaScript object
+
+const ref = useRef({});
+ref.current = { key: 'value' };
+
+// Storing a reference to a value
+
+const ref = useRef(0);
+ref.current = ref.current + 1;
+~~~
+
+> `useRef` is not a Hook itself, it is just a utility function to create a reference. The real magic happens when you used with other Hooks such as `useEffect`, `useState`, `useCallback` and `useMemo`.
