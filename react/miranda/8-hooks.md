@@ -112,3 +112,93 @@ ref.current = ref.current + 1;
 ~~~
 
 > `useRef` is not a Hook itself, it is just a utility function to create a reference. The real magic happens when you used with other Hooks such as `useEffect`, `useState`, `useCallback` and `useMemo`.
+
+## useContext
+
+It allows you to pass data through the component tree without having to pass props down manually at every level.
+
+~~~js
+const initialState = { state: 'value', setState: () => {} };
+const Context = React.createContext(initialState);
+
+const ParentComponent = () => {
+  const [state, setState] = useState(initialState.state);
+  return (
+    <Context.Provider value={{ state, setState }}>
+      <ChildComponent />
+    </Context.Provider>
+  );
+};
+
+const ChildComponent = () => {
+  const { state, setState } = useContext(Context);
+  return (
+    <div>
+      <p>{state.key}</p>
+      <button onClick={() => setState({ key: 'new value' })}>Change value</button>
+    </div>
+  );
+};
+~~~
+
+### Real world example
+
+- src/context/data.js
+
+~~~js
+export const initialState = {
+  user: null,
+  setUser: () => {},
+};
+~~~
+
+- src/context/index.jsx
+
+~~~js
+import { createContext, useState } from 'react';
+import { initialState } from './data';
+const Context = createContext(initialState);
+
+const Provider = ({ children }) => {
+  const [user, setUser] = useState(initialState.user);
+
+  return (
+    <Context.Provider value={{ user, setUser }}>
+      {children}
+    </Context.Provider>
+  );
+};
+
+export { Provider, Context };
+~~~
+
+- src/components/ParentComponent.jsx
+
+~~~js
+import { Provider } from '../context';
+
+const ParentComponent = () => {
+  return (
+    <Provider>
+      <ChildComponent />
+    </Provider>
+  );
+};
+~~~
+
+- src/components/ChildComponent.jsx
+
+~~~js
+import { useContext } from 'react';
+import { Context } from '../context';
+
+const ChildComponent = () => {
+  const { user, setUser } = useContext(Context);
+  return (
+    <div>
+      <p>{user}</p>
+      <button onClick={() => setUser('new user')}>Change user</button>
+    </div>
+  );
+};
+~~~
