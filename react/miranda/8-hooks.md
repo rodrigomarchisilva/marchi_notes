@@ -2,6 +2,17 @@
 
 Hooks should be used only outside of blocks, loops, and conditionals, in the top level of the functional component.
 
+- [Hooks](#hooks)
+  - [useState](#usestate)
+  - [useEffect](#useeffect)
+  - [useCallback](#usecallback)
+  - [useMemo](#usememo)
+  - [useRef](#useref)
+  - [useContext](#usecontext)
+    - [Real world example](#real-world-example)
+  - [useReducer](#usereducer)
+  - [Using useContext with useReducer](#using-usecontext-with-usereducer)
+
 ## useState
 
 It replaces the `this.state` and `this.setState` from the class component.
@@ -200,5 +211,109 @@ const ChildComponent = () => {
       <button onClick={() => setUser('new user')}>Change user</button>
     </div>
   );
+};
+~~~
+
+## useReducer
+
+It is a more complex version of `useState` that allows you to manage complex state logic.
+
+~~~js
+const initialState = {
+  inputValue: '',
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'action':
+      return { ...state, inputValue: action.payload };
+    default:
+      return state;
+  }
+};
+
+const Component = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { inputValue } = state;
+
+  const handleInputChange = ({ target: { value } }) => {
+    const action = { type: 'action', payload: value };
+    dispatch(action);
+  };
+
+  return <input type="text" value={inputValue} onChange={handleInputChange} />;
+};
+~~~
+
+> Typically used when you have a complex state management with multiple state updates or when you have a component that is connected to a global store.
+
+## Using useContext with useReducer
+
+src/context/data.js
+
+~~~js
+export const initialState = {
+  inputValue: '',
+};
+
+export const reducer = (state, action) => {
+  switch (action.type) {
+    case 'action':
+      return { ...state, inputValue: action.payload };
+    default:
+      return state;
+  }
+};
+~~~
+
+src/context/index.jsx
+
+~~~js
+import { createContext, useReducer } from 'react';
+import { initialState, reducer } from './data';
+
+export const Context = createContext(initialState);
+
+export const Provider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <Context.Provider value={{ state, dispatch }}>
+      {children}
+    </Context.Provider>
+  );
+};
+~~~
+
+src/components/ParentComponent.jsx
+
+~~~js
+import { Provider } from '../context';
+
+const ParentComponent = () => {
+  return (
+    <Provider>
+      <ChildComponent />
+    </Provider>
+  );
+};
+~~~
+
+src/components/ChildComponent.jsx
+
+~~~js
+import { useContext } from 'react';
+import { Context } from '../context';
+
+const ChildComponent = () => {
+  const { state, dispatch } = useContext(Context);
+  const { inputValue } = state;
+
+  const handleInputChange = ({ target: { value } }) => {
+    const action = { type: 'action', payload: value };
+    dispatch(action);
+  };
+
+  return <input type="text" value={inputValue} onChange={handleInputChange} />;
 };
 ~~~
