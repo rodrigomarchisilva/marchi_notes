@@ -12,6 +12,8 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
     - [Real world example](#real-world-example)
   - [useReducer](#usereducer)
   - [Using useContext with useReducer](#using-usecontext-with-usereducer)
+  - [Custom Hook example](#custom-hook-example)
+  - [Folder structure for context](#folder-structure-for-context)
 
 ## useState
 
@@ -154,7 +156,7 @@ const ChildComponent = () => {
 
 ### Real world example
 
-- src/context/data.js
+- src/contexts/data.js
 
 ~~~js
 export const initialState = {
@@ -163,7 +165,7 @@ export const initialState = {
 };
 ~~~
 
-- src/context/index.jsx
+- src/contexts/index.jsx
 
 ~~~js
 import { createContext, useState } from 'react';
@@ -249,7 +251,7 @@ const Component = () => {
 
 ## Using useContext with useReducer
 
-src/context/data.js
+- src/contexts/data.js
 
 ~~~js
 export const initialState = {
@@ -266,7 +268,7 @@ export const reducer = (state, action) => {
 };
 ~~~
 
-src/context/index.jsx
+- src/contexts/index.jsx
 
 ~~~js
 import { createContext, useReducer } from 'react';
@@ -285,7 +287,7 @@ export const Provider = ({ children }) => {
 };
 ~~~
 
-src/components/ParentComponent.jsx
+- src/components/ParentComponent.jsx
 
 ~~~js
 import { Provider } from '../context';
@@ -299,7 +301,7 @@ const ParentComponent = () => {
 };
 ~~~
 
-src/components/ChildComponent.jsx
+- src/components/ChildComponent.jsx
 
 ~~~js
 import { useContext } from 'react';
@@ -316,4 +318,63 @@ const ChildComponent = () => {
 
   return <input type="text" value={inputValue} onChange={handleInputChange} />;
 };
+~~~
+
+## Custom Hook example
+
+- src/hooks/useFetch.js
+
+~~~js
+import { useState, useEffect } from 'react';
+
+export const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setData(json);
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};
+~~~
+
+- src/components/ExampleComponent.jsx
+
+~~~js
+function ExampleComponent() {
+  const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/todos/1');
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  return <div>{data.title}</div>;
+}
+~~~
+
+## Folder structure for context
+
+~~~properties
+src
+├── templates
+├── components
+├── hooks
+├── context
+│   ├── ExampleContext
+│   │   ├── index.jsx
+│   │   ├── context.js
+│   │   ├── reducer.js
+│   │   ├── actions.js
+│   │   ├── types.js
+│   │   └── data.js
 ~~~
