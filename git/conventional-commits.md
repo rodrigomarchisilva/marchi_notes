@@ -294,6 +294,12 @@ BREAKING CHANGES:
 :rewind: ops(revert):
 ~~~
 
+* Deal with GitHub Actions :robot:
+
+~~~properties
+:robot: ops(GitHub Actions):
+~~~
+
 ---
 
 ## Database
