@@ -72,6 +72,11 @@ module.exports = {
     // "prettier/prettier": ["error", { "singleQuote": true }],
     "react/react-in-jsx-scope": "off"
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 };
 ~~~
 
