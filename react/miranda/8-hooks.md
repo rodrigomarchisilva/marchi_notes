@@ -13,7 +13,15 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
   - [useReducer](#usereducer)
   - [Using useContext with useReducer](#using-usecontext-with-usereducer)
   - [Custom Hook example](#custom-hook-example)
-  - [Folder structure for context](#folder-structure-for-context)
+  - [Structure to use Context API](#structure-to-use-context-api)
+    - [ExampleProvider/index.jsx](#exampleproviderindexjsx)
+    - [ExampleProvider/context.js](#exampleprovidercontextjs)
+    - [ExampleProvider/reducer.js](#exampleproviderreducerjs)
+    - [ExampleProvider/actions.js](#exampleprovideractionsjs)
+    - [ExampleProvider/types.js](#exampleprovidertypesjs)
+    - [ExampleProvider/data.js](#exampleproviderdatajs)
+    - [Posts/index.jsx](#postsindexjsx)
+    - [Home/index.jsx](#homeindexjsx)
 
 ## useState
 
@@ -362,15 +370,18 @@ function ExampleComponent() {
 }
 ~~~
 
-## Folder structure for context
+## Structure to use Context API
 
 ~~~properties
 src
 ├── templates
+│   ├── Home
+│   │   └── index.jsx
 ├── components
-├── hooks
-├── context
-│   ├── ExampleContext
+│   ├── Posts
+│   │   └──  index.jsx
+├── contexts
+│   ├── ExampleProvider
 │   │   ├── index.jsx
 │   │   ├── context.js
 │   │   ├── reducer.js
@@ -378,3 +389,130 @@ src
 │   │   ├── types.js
 │   │   └── data.js
 ~~~
+
+### ExampleProvider/index.jsx
+
+~~~js
+import P from 'prop-types';
+import { useReducer } from 'react';
+import { PostsContext } from './context';
+import { initialState } from './data';
+import { reducer } from './reducer';
+
+export const PostsProvider = ({ children }) => {
+  const [statePosts, dispatchPosts] = useReducer(reducer, initialState);
+
+  return (
+    <PostsContext.Provider value={{ statePosts, dispatchPosts }}>
+      {children}
+    </PostsContext.Provider>
+  );
+};
+
+PostsProvider.propTypes = {
+  children: P.oneOfType([P.string, P.element, P.node]).isRequired,
+  // You may use simply P.node
+};
+~~~
+
+### ExampleProvider/context.js
+
+~~~js
+import { createContext } from 'react';
+export const PostsContext = createContext();
+~~~
+
+### ExampleProvider/reducer.js
+
+~~~js
+import { POSTS_LOADING, POSTS_SUCCESS } from './types';
+
+export const reducer = (state, action) => {
+  switch (action.type) {
+    case POSTS_SUCCESS:
+      return { ...state, posts: action.payload, loading: false };
+    case POSTS_LOADING:
+      return { ...state, loading: true };
+  }
+  return { ...state };
+};
+~~~
+
+### ExampleProvider/actions.js
+
+~~~js
+import { POSTS_LOADING, POSTS_SUCCESS } from './types';
+
+export const loadPosts = async (dispatch) => {
+  dispatch({ type: POSTS_LOADING });
+  const postsRaw = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const posts = await postsRaw.json();
+  return () => dispatch({ type: POSTS_SUCCESS, payload: posts });
+};
+~~~
+
+### ExampleProvider/types.js
+
+~~~js
+export const POSTS_LOADING = 'POSTS_LOADING';
+export const POSTS_SUCCESS = 'POSTS_SUCCESS';
+~~~
+
+### ExampleProvider/data.js
+
+~~~js
+export const initialState = {
+  posts: [],
+  loading: false,
+};
+~~~
+
+### Posts/index.jsx
+
+~~~js
+import { useContext, useEffect, useRef } from 'react';
+import { loadPosts } from '../../contexts/PostsProvider/actions';
+import { PostsContext } from '../../contexts/PostsProvider/context';
+
+export const Posts = () => {
+  const isMounted = useRef(true);
+  const { statePosts, dispatchPosts } = useContext(PostsContext);
+  const { posts, loading } = statePosts;
+
+  useEffect(() => {
+    loadPosts(dispatchPosts).then((myDispatch) => {
+      if (isMounted.current) myDispatch();
+      return () => {
+        isMounted.current = false;
+      };
+    });
+  }, [dispatchPosts]);
+
+  return (
+    <div>
+      <h1>Posts</h1>
+      {loading && <p>Loading...</p>}
+      {posts.map((post) => (
+        <p key={post.id}>{post.title}</p>
+      ))}
+    </div>
+  );
+};
+~~~
+
+### Home/index.jsx
+
+~~~js
+import { Posts } from '../../components/Posts';
+import { PostsProvider } from '../../contexts/PostsProvider';
+
+export const Home = () => {
+  return (
+    <PostsProvider>
+      <Posts />
+    </PostsProvider>
+  );
+};
+~~~
+
+> Note: Provider must be outside of the component that will use the context, so put it in the parent component.
