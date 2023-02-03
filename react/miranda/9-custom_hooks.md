@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD024 -->
+
 # Custom Hooks
 
 A custom Hook is a JavaScript function whose name starts with ”use” and that may call other Hooks.
@@ -7,6 +9,9 @@ A custom Hook is a JavaScript function whose name starts with ”use” and that
   - [Complex useFetch example](#complex-usefetch-example)
     - [src/hooks/useFetch.js](#srchooksusefetchjs)
     - [src/components/ExampleComponent.jsx](#srccomponentsexamplecomponentjsx)
+  - [Complex useAsync example](#complex-useasync-example)
+    - [src/hooks/useAsync.js](#srchooksuseasyncjs)
+    - [src/components/ExampleComponent.jsx](#srccomponentsexamplecomponentjsx-1)
 
 ## Simple useFetch example
 
@@ -116,7 +121,6 @@ export const useFetch = (url, options) => {
 ### src/components/ExampleComponent.jsx
 
 ~~~js
-import { useContext, useEffect, useRef } from 'react';
 import { Loading } from '../Loading';
 import { useFetch } from '../../hooks/useFetch';
 
@@ -133,6 +137,77 @@ export const Posts = () => {
       {loadingHook && <Loading />}
       {errorHook && <p>{errorHook}</p>}
       {responseHook?.map((post) => (
+        <p key={post.id}>{post.title}</p>
+      ))}
+    </div>
+  );
+};
+~~~
+
+## Complex useAsync example
+
+### src/hooks/useAsync.js
+
+~~~js
+import { useEffect } from 'react';
+import { useState, useCallback } from 'react';
+
+export const useAsync = (asyncFunction, shouldRun) => {
+  const [state, setState] = useState({
+    status: 'idle',
+    error: null,
+    data: null,
+  });
+
+  const run = useCallback(() => {
+    setState({ status: 'pending', error: null, data: null });
+
+    return asyncFunction()
+      .then((response) => {
+        setState({ status: 'resolved', error: null, data: response });
+      })
+      .catch((error) => {
+        setState({ status: 'rejected', error, data: null });
+      });
+  }, [asyncFunction]);
+
+  useEffect(() => {
+    if (shouldRun) run();
+  }, [shouldRun, run]);
+
+  return { status: state.status, error: state.error, data: state.data, run };
+};
+~~~
+
+### src/components/ExampleComponent.jsx
+
+~~~js
+import { Loading } from '../Loading';
+import { useAsync } from '../../hooks/useAsync';
+
+const fetchPosts = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await response.json();
+  return data;
+};
+
+export const Posts = () => {
+  const {
+    data: responseHook2,
+    status: statusHook2,
+    error: errorHook2,
+    run: reRunHook2,
+  } = useAsync(fetchPosts, true);
+
+  return (
+    <div>
+      <h1>useAsync Posts</h1>
+      {statusHook2 === 'pending' && <Loading />}
+      {errorHook2 && <p>{errorHook2}</p>}
+      {statusHook2 === 'resolved' && (
+        <button onClick={reRunHook2}>Re-run</button>
+      )}
+      {responseHook2?.map((post) => (
         <p key={post.id}>{post.title}</p>
       ))}
     </div>

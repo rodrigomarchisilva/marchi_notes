@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD024 -->
+
 # Hooks
 
 Hooks should be used only outside of blocks, loops, and conditionals, in the top level of the functional component.
@@ -9,9 +11,16 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
   - [useMemo](#usememo)
   - [useRef](#useref)
   - [useContext](#usecontext)
-    - [Real world example](#real-world-example)
+  - [Real world example of useContext](#real-world-example-of-usecontext)
+    - [src/contexts/data.js](#srccontextsdatajs)
+    - [src/contexts/index.jsx](#srccontextsindexjsx)
+    - [src/components/ParentComponent.jsx](#srccomponentsparentcomponentjsx)
+    - [src/components/ChildComponent.jsx](#srccomponentschildcomponentjsx)
   - [useReducer](#usereducer)
   - [Using useContext with useReducer](#using-usecontext-with-usereducer)
+    - [src/contexts/data.js](#srccontextsdatajs-1)
+    - [src/contexts/index.jsx](#srccontextsindexjsx-1)
+    - [src/components/ChildComponent.jsx](#srccomponentschildcomponentjsx-1)
   - [Structure to use Context API](#structure-to-use-context-api)
     - [ExampleProvider/index.jsx](#exampleproviderindexjsx)
     - [ExampleProvider/context.js](#exampleprovidercontextjs)
@@ -161,9 +170,9 @@ const ChildComponent = () => {
 };
 ~~~
 
-### Real world example
+## Real world example of useContext
 
-- src/contexts/data.js
+### src/contexts/data.js
 
 ~~~js
 export const initialState = {
@@ -172,7 +181,7 @@ export const initialState = {
 };
 ~~~
 
-- src/contexts/index.jsx
+### src/contexts/index.jsx
 
 ~~~js
 import { createContext, useState } from 'react';
@@ -192,7 +201,7 @@ const Provider = ({ children }) => {
 export { Provider, Context };
 ~~~
 
-- src/components/ParentComponent.jsx
+### src/components/ParentComponent.jsx
 
 ~~~js
 import { Provider } from '../context';
@@ -206,7 +215,7 @@ const ParentComponent = () => {
 };
 ~~~
 
-- src/components/ChildComponent.jsx
+### src/components/ChildComponent.jsx
 
 ~~~js
 import { useContext } from 'react';
@@ -258,7 +267,7 @@ const Component = () => {
 
 ## Using useContext with useReducer
 
-- src/contexts/data.js
+### src/contexts/data.js
 
 ~~~js
 export const initialState = {
@@ -275,7 +284,7 @@ export const reducer = (state, action) => {
 };
 ~~~
 
-- src/contexts/index.jsx
+### src/contexts/index.jsx
 
 ~~~js
 import { createContext, useReducer } from 'react';
@@ -308,7 +317,7 @@ const ParentComponent = () => {
 };
 ~~~
 
-- src/components/ChildComponent.jsx
+### src/components/ChildComponent.jsx
 
 ~~~js
 import { useContext } from 'react';
