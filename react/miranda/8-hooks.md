@@ -12,7 +12,6 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
     - [Real world example](#real-world-example)
   - [useReducer](#usereducer)
   - [Using useContext with useReducer](#using-usecontext-with-usereducer)
-  - [Custom Hook example](#custom-hook-example)
   - [Structure to use Context API](#structure-to-use-context-api)
     - [ExampleProvider/index.jsx](#exampleproviderindexjsx)
     - [ExampleProvider/context.js](#exampleprovidercontextjs)
@@ -326,48 +325,6 @@ const ChildComponent = () => {
 
   return <input type="text" value={inputValue} onChange={handleInputChange} />;
 };
-~~~
-
-## Custom Hook example
-
-- src/hooks/useFetch.js
-
-~~~js
-import { useState, useEffect } from 'react';
-
-export const useFetch = (url) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        setData(json);
-        setLoading(false);
-      } catch (err) {
-        setError(err);
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, [url]);
-
-  return { data, loading, error };
-};
-~~~
-
-- src/components/ExampleComponent.jsx
-
-~~~js
-function ExampleComponent() {
-  const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/todos/1');
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  return <div>{data.title}</div>;
-}
 ~~~
 
 ## Structure to use Context API
