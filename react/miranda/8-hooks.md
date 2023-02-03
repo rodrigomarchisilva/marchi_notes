@@ -33,6 +33,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
     - [ExampleProvider/data.js](#exampleproviderdatajs)
     - [Posts/index.jsx](#postsindexjsx)
     - [Home/index.jsx](#homeindexjsx)
+  - [useDebugValue](#usedebugvalue)
 
 ## useState
 
@@ -563,3 +564,29 @@ export const Home = () => {
 ~~~
 
 > Note: Provider must be outside of the component that will use the context, so put it in the parent component.
+
+## useDebugValue
+
+It is used to debug hooks in React DevTools. As an example, it can be used to display the parameters received by a hook.
+
+~~~js
+import { useDebugValue } from 'react';
+
+const useMyHook = (value) => {
+  useDebugValue(value);
+  const [value, setValue] = useState(value);
+  return [value, setValue];
+};
+~~~
+
+It has a second parameter that receives a function that will be used to format the value displayed in React DevTools.
+
+~~~js
+import { useDebugValue } from 'react';
+
+const useMyHook = (value) => {
+  useDebugValue(value, (value) => `Value: ${value}`);
+  const [value, setValue] = useState(value);
+  return [value, setValue];
+};
+~~~
