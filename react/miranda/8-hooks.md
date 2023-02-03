@@ -11,6 +11,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
   - [useCallback](#usecallback)
   - [useMemo](#usememo)
   - [useRef](#useref)
+  - [forwardRef](#forwardref)
   - [useContext](#usecontext)
   - [Real world example of useContext](#real-world-example-of-usecontext)
     - [src/contexts/data.js](#srccontextsdatajs)
@@ -167,6 +168,30 @@ ref.current = ref.current + 1;
 ~~~
 
 > `useRef` is not a Hook itself, it is just a utility function to create a reference. The real magic happens when you used with other Hooks such as `useEffect`, `useState`, `useCallback` and `useMemo`.
+
+## forwardRef
+
+It allows you to pass a ref through a component to one of its children.
+
+~~~js
+const ChildComponent = React.forwardRef((props, ref) => {
+  return (
+    <div ref={ref}>
+      <p>{props.text}</p>
+    </div>
+  );
+});
+
+const ParentComponent = () => {
+  const ref = useRef(null);
+  return (
+    <div>
+      <ChildComponent ref={ref} text="Hello" />
+      <button onClick={() => ref.current.focus()}>Focus Child</button>
+    </div>
+  );
+};
+~~~
 
 ## useContext
 
