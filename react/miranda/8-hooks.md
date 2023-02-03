@@ -12,6 +12,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
   - [useMemo](#usememo)
   - [useRef](#useref)
   - [forwardRef](#forwardref)
+  - [useImperativeHandle](#useimperativehandle)
   - [useContext](#usecontext)
   - [Real world example of useContext](#real-world-example-of-usecontext)
     - [src/contexts/data.js](#srccontextsdatajs)
@@ -188,6 +189,35 @@ const ParentComponent = () => {
     <div>
       <ChildComponent ref={ref} text="Hello" />
       <button onClick={() => ref.current.focus()}>Focus Child</button>
+    </div>
+  );
+};
+~~~
+
+## useImperativeHandle
+
+`useImperativeHandle` is a React hook that allows you to control what a parent component can access in a custom component created with React.`forwardRef`. It is used to modify the `ref` object passed to a component and expose its methods or properties, like an `onClick` of a `button`.
+
+~~~js
+const ChildComponent = React.forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+
+  useImperativeHandle(ref, () => ({
+    clear: () => {
+      inputRef.current.value = '';
+    },
+  }));
+
+  return <input ref={inputRef} {...props} />;
+});
+
+const ParentComponent = () => {
+  const inputRef = useRef(null);
+
+  return (
+    <div>
+      <ChildComponent ref={inputRef} />
+      <button onClick={() => inputRef.current.clear()}>Clear</button>
     </div>
   );
 };
