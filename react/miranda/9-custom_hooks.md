@@ -12,6 +12,9 @@ A custom Hook is a JavaScript function whose name starts with ”use” and that
   - [Complex useAsync example](#complex-useasync-example)
     - [src/hooks/useAsync.js](#srchooksuseasyncjs)
     - [src/components/ExampleComponent.jsx](#srccomponentsexamplecomponentjsx-1)
+  - [useMediaQuery](#usemediaquery)
+    - [src/hooks/useMediaQuery.js](#srchooksusemediaqueryjs)
+    - [src/components/ExampleComponent.jsx](#srccomponentsexamplecomponentjsx-2)
 
 ## Simple useFetch example
 
@@ -212,5 +215,59 @@ export const Posts = () => {
       ))}
     </div>
   );
+};
+~~~
+
+## useMediaQuery
+
+### src/hooks/useMediaQuery.js
+
+~~~js
+import { useState, useEffect } from 'react';
+
+export const useMediaQuery = (query, initialValue = false) => {
+  const [match, setMatch] = useState(initialValue);
+
+  useEffect(() => {
+    let isMounted = true;
+    const mediaQuery = window.matchMedia(query);
+
+    const handleChange = () => {
+      if (isMounted) setMatch(mediaQuery.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    setMatch(mediaQuery.matches);
+
+    return () => {
+      isMounted = false;
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, [query]);
+
+  return match;
+};
+~~~
+
+### src/components/ExampleComponent.jsx
+
+~~~js
+import { useMediaQuery } from '../../hooks/useMediaQuery';
+
+export const ExampleComponent = () => {
+  const huge = useMediaQuery('(min-width: 980px)');
+  const big = useMediaQuery('(min-width: 768px)');
+  const medium = useMediaQuery('(min-width: 576px)');
+  const small = useMediaQuery('(min-width: 0px)');
+  const background = huge
+    ? 'green'
+    : big
+    ? 'blue'
+    : medium
+    ? 'yellow'
+    : small
+    ? 'orange'
+    : 'red';
+  return <div style={{ fontSize: '60px', background }}>Colored Div</div>;
 };
 ~~~
