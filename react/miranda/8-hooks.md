@@ -7,6 +7,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
 - [Hooks](#hooks)
   - [useState](#usestate)
   - [useEffect](#useeffect)
+  - [useLayoutEffect](#uselayouteffect)
   - [useCallback](#usecallback)
   - [useMemo](#usememo)
   - [useRef](#useref)
@@ -60,6 +61,31 @@ useEffect(() => { return () => {componentWillUnmount} }, []);
 useEffect(() => () => {componentWillUnmount}, []); // shorter version of above
 useEffect(() => () => {componentWillUnmount}, [state]); // runs componentWillUnmount every time state changes
 ~~~
+
+## useLayoutEffect
+
+Very similar to `useEffect`, but should only be used when changes to the layout of a component are critical, and when using useEffect would result in visible changes that the user would need to correct.
+
+~~~js
+import React, { useState, useLayoutEffect } from 'react';
+
+const Example = () => {
+  const [count, setCount] = useState(0);
+
+  useLayoutEffect(() => {
+    document.title = `Count: ${count}`;
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase Count</button>
+    </div>
+  );
+};
+~~~
+
+> This ensures that any changes made to the DOM will be visible to the user in the next render.
 
 ## useCallback
 
