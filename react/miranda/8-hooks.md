@@ -35,6 +35,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
     - [Home/index.jsx](#homeindexjsx)
   - [useDebugValue](#usedebugvalue)
   - [Hooks flow](#hooks-flow)
+  - [Error boundaries](#error-boundaries)
 
 ## useState
 
@@ -645,3 +646,32 @@ Hooks with the same priority are executed in the order they are declared.
             <td>Run Effects</td>
             <td></td>
         </tr>
+
+## Error boundaries
+
+Use this component to catch errors in the children components and prevent the whole application from crashing.
+
+~~~js
+import { Component } from 'react';
+import P from 'prop-types';
+
+export class ErrorBoundary extends Component {
+  state = { error: null };
+
+  componentDidCatch(error) {
+    this.setState({ error });
+  }
+
+  render() {
+    const { error } = this.state;
+    const { children } = this.props;
+    return error ? <h1>{error.message}</h1> : children;
+  }
+}
+
+ErrorBoundary.propTypes = {
+  children: P.node.isRequired,
+};
+~~~
+
+> Note: Errors will still be logged in the console. It is a defensive mechanism to catch deeper errors in the component that might be missed if not logged.
