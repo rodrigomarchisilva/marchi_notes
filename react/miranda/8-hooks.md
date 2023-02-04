@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD024 MD033 -->
 
 # Hooks
 
@@ -34,6 +34,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
     - [Posts/index.jsx](#postsindexjsx)
     - [Home/index.jsx](#homeindexjsx)
   - [useDebugValue](#usedebugvalue)
+  - [Hooks flow](#hooks-flow)
 
 ## useState
 
@@ -590,3 +591,57 @@ const useMyHook = (value) => {
   return [value, setValue];
 };
 ~~~
+
+## Hooks flow
+
+Hooks with the same priority are executed in the order they are declared.
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center">Mount</th>
+            <th style="text-align: center">Update</th>
+            <th style="text-align: center">Unmount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Run lazy initializers</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Render</td>
+            <td>Render</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>React updates DOM</td>
+            <td>React updates DOM</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Cleanup LayoutEffects</td>
+            <td>Cleanup LayoutEffects</td>
+        </tr>
+        <tr>
+            <td>Run LayoutEffects</td>
+            <td>Run LayoutEffects</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Browser paints screen</td>
+            <td>Browser paints screen</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Cleanup Effects</td>
+            <td>Cleanup Effects</td>
+        </tr>
+        <tr>
+            <td>Run Effects</td>
+            <td>Run Effects</td>
+            <td></td>
+        </tr>
