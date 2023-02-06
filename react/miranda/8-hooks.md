@@ -805,3 +805,23 @@ export const LazyLoading = () => (
   </Suspense>
 );
 ~~~
+
+It can be used as a function, so it can be loaded on mouse over before the user clicks on the button, as an example.
+
+~~~js
+import { lazy, Suspense, useState } from 'react';
+
+const [show, setShow] = useState(false);
+
+const loadComponent = (component) => lazy(() => import(`./${component}`));
+const LazyComponent = loadComponent('LazyComponent');
+
+export const LazyLoading = () => (
+  <button onMouseOver={() => loadComponent('LazyComponent')} onClick={() => setShow((s) => !s)}>
+    Show component
+  </button>
+  <Suspense fallback={<div>Loading...</div>}>
+    <LazyComponent />
+  </Suspense>
+);
+~~~
