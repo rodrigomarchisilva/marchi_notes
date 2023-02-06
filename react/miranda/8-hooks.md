@@ -37,6 +37,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
   - [Hooks flow](#hooks-flow)
   - [Error boundaries](#error-boundaries)
   - [Compound components](#compound-components)
+  - [Compound Components based on Context](#compound-components-based-on-context)
 
 ## useState
 
@@ -719,6 +720,58 @@ const ToggleButton = ({ isOn, toggle }) => (<button onClick={toggle}>{isOn ? 'Tu
 ToggleButton.propTypes = {
   isOn: P.bool.isRequired,
   toggle: P.func.isRequired,
+};
+
+export const CompoundComponent = () => (
+  <Style>
+    <TurnOnOff>
+      <TurnedOn>
+        <p>Turned On</p>
+      </TurnedOn>
+      <TurnedOff>
+        <p>Turned Off</p>
+      </TurnedOff>
+      <ToggleButton />
+    </TurnOnOff>
+  </Style>
+);
+~~~
+
+## Compound Components based on Context
+
+~~~js
+import { createContext, useContext } from 'react';
+import P from 'prop-types';
+
+const style = { fontSize: '60px' };
+
+const Style = ({ children }) => Children.map(children, (child) => cloneElement(child, { ...style }));
+
+const StyleContext = createContext({ children: null });
+
+const TurnOnOff = ({ children }) => {
+  const [isOn, setIsOn] = useState(false);
+  const toggle = () => setIsOn(!isOn);
+  return (
+    <StyleContext.Provider value={{ isOn, toggle }}>
+      {children}
+    </StyleContext.Provider>
+  );
+};
+
+const TurnedOn = ({ children }) => {
+  const { isOn } = useContext(StyleContext);
+  return isOn ? children : null;
+};
+
+const TurnedOff = ({ children }) => {
+  const { isOn } = useContext(StyleContext);
+  return isOn ? null : children;
+};
+
+const ToggleButton = () => {
+  const { isOn, toggle } = useContext(StyleContext);
+  return (<button onClick={toggle}>{isOn ? 'Turn Off' : 'Turn On'}</button>);
 };
 
 export const CompoundComponent = () => (
