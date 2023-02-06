@@ -36,6 +36,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
   - [useDebugValue](#usedebugvalue)
   - [Hooks flow](#hooks-flow)
   - [Error boundaries](#error-boundaries)
+  - [Compound components](#compound-components)
 
 ## useState
 
@@ -675,3 +676,62 @@ ErrorBoundary.propTypes = {
 ~~~
 
 > Note: Errors will still be logged in the console. It is a defensive mechanism to catch deeper errors in the component that might be missed if not logged.
+
+## Compound components
+
+It is a pattern that allows you to create components that can be composed with other components.
+
+~~~js
+import { Children, cloneElement } from 'react';
+import { useState } from 'react';
+import P from 'prop-types';
+
+const style = { fontSize: '60px' };
+
+const Style = ({ children }) => Children.map(children, (child) => cloneElement(child, { ...style }));
+
+const TurnOnOff = ({ children }) => {
+  const [isOn, setIsOn] = useState(false);
+  const toggle = () => setIsOn(!isOn);
+  return Children.map(children, (child) =>
+    typeof child.type === 'string'
+      ? child
+      : cloneElement(child, { isOn, toggle }),
+  });
+};
+
+const TurnedOn = ({ isOn, children }) => (isOn ? children : null);
+
+TurnedOn.propTypes = {
+  isOn: P.bool.isRequired,
+  children: P.node.isRequired,
+};
+
+const TurnedOff = ({ isOn, children }) => (isOn ? null : children);
+
+TurnedOff.propTypes = {
+  isOn: P.bool.isRequired,
+  children: P.node.isRequired,
+};
+
+const ToggleButton = ({ isOn, toggle }) => (<button onClick={toggle}>{isOn ? 'Turn Off' : 'Turn On'}</button>);
+
+ToggleButton.propTypes = {
+  isOn: P.bool.isRequired,
+  toggle: P.func.isRequired,
+};
+
+export const CompoundComponent = () => (
+  <Style>
+    <TurnOnOff>
+      <TurnedOn>
+        <p>Turned On</p>
+      </TurnedOn>
+      <TurnedOff>
+        <p>Turned Off</p>
+      </TurnedOff>
+      <ToggleButton />
+    </TurnOnOff>
+  </Style>
+);
+~~~
