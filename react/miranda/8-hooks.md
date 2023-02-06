@@ -38,6 +38,7 @@ Hooks should be used only outside of blocks, loops, and conditionals, in the top
   - [Error boundaries](#error-boundaries)
   - [Compound components](#compound-components)
   - [Compound Components based on Context](#compound-components-based-on-context)
+  - [Lazy loading](#lazy-loading)
 
 ## useState
 
@@ -786,5 +787,21 @@ export const CompoundComponent = () => (
       <ToggleButton />
     </TurnOnOff>
   </Style>
+);
+~~~
+
+## Lazy loading
+
+A way to make sure that a component is only loaded when it is needed.
+
+~~~js
+import { lazy, Suspense } from 'react';
+
+const LazyComponent = lazy(() => import('./LazyComponent'));
+
+export const LazyLoading = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <LazyComponent />
+  </Suspense>
 );
 ~~~
