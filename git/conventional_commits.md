@@ -36,6 +36,12 @@
 :recycle: refactor(cleaner code):
 ~~~
 
+* Minor changes that do not affect the functionality :hammer:
+
+~~~properties
+:hammer: refactor(small changes):
+~~~
+
 * Move, rename or change file extension :truck:
 
 ~~~properties
