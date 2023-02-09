@@ -54,6 +54,11 @@
     - [log](#log)
     - [warn](#warn)
     - [error](#error)
+    - [table](#table)
+    - [group](#group)
+    - [trace](#trace)
+    - [dir](#dir)
+    - [count](#count)
   - [10. fetch](#10-fetch)
     - [XMLHttpRequest](#xmlhttprequest)
     - [fetchAPI](#fetchapi)
@@ -663,6 +668,79 @@ console.warn('This will be displayed as a warning');
 
 ~~~js
 console.error('This will be displayed as an error');
+~~~
+
+### table
+
+~~~js
+const users = [
+  { name: 'John', age: 25 },
+  { name: 'Jane', age: 30 },
+];
+console.table(users);
+~~~
+
+### group
+
+~~~js
+console.group('Group 1');
+console.log('This is a log');
+console.log('This is a log');
+console.groupEnd();
+
+console.group('Group 2');
+console.log('This is a log');
+console.log('This is a log');
+console.groupEnd();
+
+// Group 1
+//   This is a log
+//   This is a log
+// Group 2
+//   This is a log
+//   This is a log
+~~~
+
+### trace
+
+Shows the call stack. Call stack is a sequence of functions, where each function is called by the previous one.
+
+~~~js
+const log = () => {
+  console.trace();
+};
+
+const log2 = () => {
+  log();
+};
+
+log2();
+
+// log()
+// log2()
+~~~
+
+### dir
+
+Shows the properties of an object
+
+~~~js
+const obj = { name: 'John', age: 25 };
+console.dir(obj);
+~~~
+
+### count
+
+Each time a function is called, it shows the number of times it has been called
+
+~~~js
+const log = () => {
+  console.count();
+};
+
+log(); // log: 1
+log(); // log: 2
+log(); // log: 3
 ~~~
 
 ## 10. fetch
