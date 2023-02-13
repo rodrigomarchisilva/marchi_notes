@@ -148,6 +148,12 @@ BREAKING CHANGES:
 :books: docs(readme):
 ~~~
 
+* Add or update data in structures such as objects, arrays, etc. :card_index:
+
+~~~properties
+:card_index: chore(data):
+~~~
+
 * Add or update comments in source code :bulb:
 
 ~~~properties
