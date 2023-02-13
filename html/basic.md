@@ -13,6 +13,7 @@
     - [img (image)](#img-image)
     - [a (anchor for links)](#a-anchor-for-links)
     - [hr (horizontal rule)](#hr-horizontal-rule)
+    - [div (division)](#div-division)
   - [Browser](#browser)
   - [Attributes](#attributes)
     - [a](#a)
@@ -90,6 +91,14 @@
 <hr> <!-- This renders a horizontal line. -->
 ~~~
 
+### div (division)
+
+Powerful tag that can be used to group elements and style them together.
+
+~~~html
+<div>This is a division.</div>
+~~~
+
 ## Browser
 
 - The browser reads the HTML document and renders it into a web page.
@@ -153,3 +162,5 @@ A list with terms and their details.
   <dd>- white cold drink</dd>
 </dl>
 ~~~
+
+[⬆️ Back to top](#index)

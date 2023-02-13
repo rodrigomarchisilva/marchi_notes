@@ -6,9 +6,11 @@
   - [Index](#index)
   - [Places to learn CSS](#places-to-learn-css)
   - [Concepts](#concepts)
-  - [Inline CSS](#inline-css)
-  - [Internal CSS](#internal-css)
-  - [External CSS](#external-css)
+  - [Types of usage](#types-of-usage)
+    - [Inline CSS](#inline-css)
+    - [Internal CSS](#internal-css)
+    - [External CSS](#external-css)
+    - [Import CSS](#import-css)
   - [Colors](#colors)
     - [17 Named Colors for HTML5](#17-named-colors-for-html5)
     - [Hexadecimal Colors](#hexadecimal-colors)
@@ -17,6 +19,14 @@
   - [Background](#background)
   - [Text](#text)
   - [Fonts](#fonts)
+  - [Structure](#structure)
+  - [Comments](#comments)
+  - [Selectors](#selectors)
+    - [Element Selector](#element-selector)
+    - [ID Selector](#id-selector)
+    - [Class Selector](#class-selector)
+  - [Spacing](#spacing)
+  - [Priority order](#priority-order)
 
 ## Places to learn CSS
 
@@ -29,6 +39,8 @@
 - CSS stands for `Cascading Style Sheets`.
 - CSS isn't a programming language. It is a style sheet language.
 - The extension for CSS files is `.css`.
+- It reduces the complexity of HTML by separating the content from the presentation.
+- It also reduces the amount of code needed to create a website, because it can be reused.
 
 **Example:**
 
@@ -40,7 +52,9 @@ body {
 
 > **Note:** The above example will make all text in the body red.
 
-## Inline CSS
+## Types of usage
+
+### Inline CSS
 
 Used in an HTML element to define CSS styles for the current element.
 
@@ -48,7 +62,7 @@ Used in an HTML element to define CSS styles for the current element.
 <p style="color: red;">This is a paragraph.</p>
 ~~~
 
-## Internal CSS
+### Internal CSS
 
 Used inside the `<head>` element of an HTML page to define CSS styles for the current page.
 
@@ -62,7 +76,7 @@ Used inside the `<head>` element of an HTML page to define CSS styles for the cu
 </head>
 ~~~
 
-## External CSS
+### External CSS
 
 Used inside the `<head>` element of an HTML page to link to an external CSS file.
 
@@ -75,6 +89,20 @@ Used inside the `<head>` element of an HTML page to link to an external CSS file
 - `rel="stylesheet"` defines the relationship between the HTML page and the CSS file.
 - `type="text/css"` defines the type of the CSS file.
 - `href="styles.css"` defines the path to the CSS file.
+
+### Import CSS
+
+Used inside the `<head>` element of an HTML page to import an external CSS file.
+
+~~~html
+<head>
+  <style>
+    @import url("styles.css");
+  </style>
+</head>
+~~~
+
+> **Note:** The `@import` rule must be before everything else in the HTML file.
 
 ## Colors
 
@@ -147,3 +175,90 @@ There are 17 named colors for HTML.
 - `font-variant: small-caps;` Defines whether or not a text should be displayed in a small-caps font. (normal, small-caps)
 - `font-weight: bold;` Defines the weight of a font. (normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900)
 - `font: italic bold 12px arial, sans-serif;` A shorthand property for the above font properties.
+
+## Structure
+
+`selector { property: value; }`
+
+- `selector` defines the HTML element to style.
+- `property` defines the aspect of the element to change.
+- `value` defines the value of the property.
+
+**Example:**
+
+~~~css
+p {
+  color: red;
+}
+~~~
+
+## Comments
+
+Comments are used to explain the code, and will not be displayed in the browser.
+
+~~~css
+/* This is a comment */
+~~~
+
+## Selectors
+
+### Element Selector
+
+Selects all elements with the specified name.
+
+~~~css
+p {
+  color: red;
+}
+~~~
+
+### ID Selector
+
+Selects the element with the specified id.
+
+~~~css
+#id {
+  color: red;
+}
+~~~
+
+> **Note:** An id must be unique within a page, so it can only be used once.
+
+### Class Selector
+
+Selects all elements with the specified class.
+
+~~~css
+.class {
+  color: red;
+}
+~~~
+
+> **Note:** A class can be used on multiple elements.
+
+## Spacing
+
+- `margin: 20px;` Defines the margin around an element. (top, right, bottom, left)
+- `padding: 20px;` Defines the padding around an element. (top, right, bottom, left)
+- `border: 1px solid black;` Defines the border around an element. (width, style, color)
+
+~~~css
+p {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border: 1px solid black;
+}
+~~~
+
+## Priority order
+
+1. User `!important` declaration
+2. Developer `!important` declaration
+3. Inline style (inside an HTML element)
+4. Incorporate style (inside the head section)
+5. External and internal style sheets (in the head section)
+6. Developer defined style sheet (imported or linked)
+7. User defined style sheet
+8. Browser default
+
+[⬆️ Back to top](#index)
