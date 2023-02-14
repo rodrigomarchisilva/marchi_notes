@@ -9,7 +9,7 @@
 ## Privilégios do usuário
 
 - `sudo` - Permite executar programas c/ privilégios de outro usuário - por padrão,
-  como o root). `sudo` significa "substitute user do" (usuário 
+  como o root). `sudo` significa "substitute user do" (usuário
   substituto faça)  
   
 Vídeo sobre su, sudo e sudoers. Nesse vídeo eu detalho mais sobre o comando su, sudo e o arquivo sudoers:

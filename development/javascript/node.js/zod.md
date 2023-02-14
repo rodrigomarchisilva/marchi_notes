@@ -40,7 +40,7 @@ const fordCarsSchema = z.object({
   }))
   .refine(cars => 
     cars.filter(car => car.brand === 'Ford').length > 0,
-    { message: 'You must have at least one Frod car' }
+    { message: 'You must have at least one Ford car' }
   )
   .transform(cars => 
     cars.map(car => ({
