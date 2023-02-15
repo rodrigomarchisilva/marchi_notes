@@ -6,7 +6,6 @@
   - [Index](#index)
   - [Graphite](#graphite)
     - [Grades](#grades)
-  - [India ink](#india-ink)
 
 ## Graphite
 
@@ -28,7 +27,3 @@
 - **B:** Soft and darker lines.
 - **HB:** Hard and black.
 - **F:** Fine and thin lines.
-
-## India ink
-
--
