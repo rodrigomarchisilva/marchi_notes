@@ -12,7 +12,7 @@
     - [🛠️ DevOps](#️-devops)
     - [🌳 Environment](#-environment)
     - [🎮 Game Design](#-game-design)
-    - [🖥️ Systems and Analysis Development (SAD)](#️-systems-and-analysis-development-sad)
+    - [🖥️ Systems Analysis and Development (SAD)](#️-systems-analysis-and-development-sad)
     - [🌐 Web Basics](#-web-basics)
 
 ## 👋 About
@@ -88,7 +88,7 @@ Game Design related content:
   - [Life & Career](game_design/life_&_career)
   - [Visual Expression](game_design/visual_expression)
 
-### 🖥️ Systems and Analysis Development (SAD)
+### 🖥️ Systems Analysis and Development (SAD)
 
 My associate's degree in Systems and Analysis Development:
 
