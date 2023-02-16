@@ -32,12 +32,12 @@
 
 ### 👋 About
 
-- This is a documentation where I take notes about things I learn.
-- I use it as a way to keep track of what I learn and to help me remember things.
-- I also use it as a way to help me learn more about things I already know.
+- This is a repository where I take notes about things I learn, to help me remember things.
+- It's also a way to force me to learn more about content I already know.
+- I might also write down some tips and tricks I find useful, that could help others.
 - Some things might be in english, some in Brazilian portuguese, and some in both.
-- I might also use it to write down some tips and tricks I find useful, that could help others.
 - If you want to use it, feel free to do so. If you find any mistakes, or improvements, please let me know.
+- If you find it useful in any way, consider leaving a star for the repository! 😄
 
 ### 👑 Most Useful Resources
 
@@ -123,12 +123,12 @@ Web basics or generic content that can be used in any web project:
 
 ### 👋 Sobre
 
-- Este é um documento onde eu anoto coisas que eu aprendo.
-- Eu uso isso como uma forma de manter um histórico do que eu aprendo e para me ajudar a lembrar de coisas.
-- Eu também uso isso como uma forma de me ajudar a aprender mais sobre coisas que eu já conheço.
-- Algumas coisas podem estar em inglês, outras em português brasileiro, e algumas em ambos.
-- Eu também posso usar isso para escrever algumas dicas e truques que eu acho úteis, que podem ajudar outras pessoas.
-- Se você quiser usar isso, fique à vontade. Se você encontrar algum erro ou melhoria, por favor me avise.
+- Este é um repositório onde eu anoto coisas que aprendo, para me ajudar a lembrar dos conteúdos
+- Também é uma forma de me forçar a aprender mais sobre coisas que eu já conheço.
+- Também posso usar para escrever algumas dicas e truques que eu acho úteis, que podem ajudar outras pessoas.
+- Alguns conteúdos podem estar em inglês, outros em português, e alguns em ambos.
+- Se você quiser usar, fique à vontade. Caso encontre algum erro ou melhoria, por favor me avise.
+- Se achar útil de alguma maneira, considere deixar uma estrela para o repositório! 😄
 
 ### 👑 Recursos mais úteis
 
