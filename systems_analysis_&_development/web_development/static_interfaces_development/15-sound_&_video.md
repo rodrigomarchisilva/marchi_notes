@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD024 -->
 # Sound and Video
 
-[⬅️ Previous: Static Interfaces Development](14-static_interfaces_development.md) | [➡️ Next: Web Services](16-web_services.md)
+[⬅️ Previous: Animations & Transitions](14-animations_&_transitions.md) | [➡️ Next: Responsive Layouts](16-responsive_layout.md)
 
 [🏠 Home](../../README.md)
 
@@ -119,6 +119,6 @@ video {
 
 [⬆️ Back to top](#index)
 
-[⬅️ Previous: Static Interfaces Development](14-static_interfaces_development.md) | [➡️ Next: Web Services](16-web_services.md)
+[⬅️ Previous: Animations & Transitions](14-animations_&_transitions.md) | [➡️ Next: Responsive Layouts](16-responsive_layout.md)
 
 [🏠 Home](../../README.md)
