@@ -24,6 +24,10 @@ Context API is a way to share data between components without having to pass pro
     - [ExampleProvider/data.js](#exampleproviderdatajs)
     - [Posts/index.jsx](#postsindexjsx)
     - [Home/index.jsx](#homeindexjsx)
+  - [Combining context providers](#combining-context-providers)
+    - [utils/combineComponents.tsx](#utilscombinecomponentstsx)
+    - [CombinedProviders.tsx](#combinedproviderstsx)
+    - [Usage](#usage)
 
 ## useContext
 
@@ -332,3 +336,52 @@ export const Home = () => {
 ~~~
 
 > Note: Provider must be outside of the component that will use the context, so put it in the parent component.
+
+## Combining context providers
+
+### utils/combineComponents.tsx
+
+~~~tsx
+import { ComponentProps, FC } from 'react';
+
+export const combineComponents = (...components: FC[]): FC => {
+  return components.reduce(
+    (AccumulatedComponents, CurrentComponent) => {
+      return ({ children }: ComponentProps<FC>): JSX.Element => {
+        return (
+          <AccumulatedComponents>
+            <CurrentComponent>{children}</CurrentComponent>
+          </AccumulatedComponents>
+        );
+      };
+    },
+    ({ children }) => <>{children}</>
+  );
+};
+~~~
+
+### CombinedProviders.tsx
+
+~~~tsx
+import React from 'react';
+import { ContextProvider1 } from '../Context1';
+import { ContextProvider2 } from '../Context2';
+import { ContextProvider3 } from '../Context3';
+import { ContextProvider4 } from '../Context4';
+import { combineComponents } from '../utils/combineComponents';
+const providers = [
+  ContextProvider1,
+  ContextProvider2,
+  ContextProvider3,
+  ContextProvider4
+]
+export const CombinedProviders = combineComponents(...providers);
+~~~
+
+### Usage
+
+~~~tsx
+<CombinedProviders>
+  <ComponentUsingCombinedProviders />
+</CombinedProviders>
+~~~
