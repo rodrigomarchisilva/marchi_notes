@@ -14,6 +14,7 @@
   - DOYLE, Michael E. Desenho a Cores: Técnicas de desenho de projeto para arquitetos, paisagistas e designers de interiores.
   - Capítulo 2 (inteiro)
   - Lápis de cor (p. 36 à 38)
+  - Desenho de ilustrações em croquis e de cenas em arquitetura (p. 220 à 235)
 - [Design: conceitos e métodos](https://integrada.minhabiblioteca.com.br/#/books/9788521210115/pageid/115)
   - HSUAN-AN, Tai. 'Design: conceitos e métodos'. São Paulo, Blucher, 2018.
   - Capítulo 10 (p. 115 à 122).
@@ -23,6 +24,7 @@
 - [Desenho para leigos](https://integrada.minhabiblioteca.com.br/reader/books/9786555207811/pageid/170)
   - HODDINOTT, Brenda; COMBS, Jamie. Desenho Para Leigos. Editora Alta Books, 2016.
   - Esboço (p. 149 à 152)
+  - Figura humana (p. 286 à 292)
 
 ## Vídeos
 
@@ -30,6 +32,11 @@
 - [Construindo um império: o mundo de Da Vinci](https://www.youtube.com/watch?v=dyXP5mq8hCE)
 - [Episódio n. 2: - proporção e eixos. À Mão Livre: a linguagem do desenho.](https://www.youtube.com/watch?v=WGEGwfaY_Gw)
 - [Measuring with pencil for observational drawing (2018)](https://www.youtube.com/watch?v=ZGWGf3jVpeo)
+- [Desenho do rosto frontal](https://youtu.be/tW9S-W2oMSA)
+- [Desenho do rosto em posições variadas](https://youtu.be/ncsoJR_nTIU)
+- [Cabeça frontal de Proko](https://youtu.be/z4ZLkyTuX_w)
+- [Cabeça lateral de Proko](https://youtu.be/yS6R2l8t8wo)
+- [Cabeça em ângulos extremos de Proko](https://youtu.be/PgK90TpV5fA)
 
 ## Artigos
 
@@ -39,3 +46,4 @@
 - [20 exemplos de como visualizar seu projeto](https://www.archdaily.com.br/br/941964/axonometria-na-arquitetura-brasileira-20-exemplos-de-como-visualizar-seu-projeto)
 - [Perspectiva em jogos](https://www.nintendoblast.com.br/2022/04/super-paper-mario-wii-15-anos-blast-from-the-past.html)
 - [A ferramenta não é tão importante quanto o olhar do artista](https://www.tudointeressante.com.br/2023/02/artista-cria-desenhos-incriveis-utilizando-apenas-uma-maquina-de-escrever-e-muita-criatividade.html)
+- [Figura humana ao longo da história](https://postal.pt/edicaopapel/como-tem-evoluido-a-abordagem-da-figura-humana-nas-artes-visuais-por-saul-neves-de-jesus/)
