@@ -25,6 +25,18 @@
   - HODDINOTT, Brenda; COMBS, Jamie. Desenho Para Leigos. Editora Alta Books, 2016.
   - Esboço (p. 149 à 152)
   - Figura humana (p. 286 à 292)
+- [Artes Visuais: práticas tridimensionais](https://plataforma.bvirtual.com.br/Leitor/Publicacao/47509/epub/0)
+  - CARNEIRO, I. A. Artes Visuais: práticas tridimensionais.
+  - Tridimensionalidade (p. 234 à 243)
+- [Design & Complexidade](https://integrada.minhabiblioteca.com.br/reader/books/9788580392159/pageid/0)
+  - ARRUDA, A. J. V. Design & Complexidade.
+  - Dois primeiros artigos do livro (páginas 10 a 38).
+- [História da arte e do design](https://integrada.minhabiblioteca.com.br/reader/books/9788595026582/pageid/160)
+  - SANTOS, J. C. C. História da arte e do design.
+  - Escola Bahaus (p. 161 à 173).
+- [Entre cores, formas e labirintos: arte tridimensional](https://plataforma.bvirtual.com.br/Leitor/Publicacao/51606/pdf/1?code=8JF2mj6vK8R8AzBOgWPcYUlhJWd6+XIGvxeatD9snPXQlbGFVbT/wklLQ2LmdzxENG+dL676hIycKQLag04iog==)
+  - Entre cores, formas e labirintos: arte tridimensional, Clediane Lourenço.
+  - capítulos 1 e 4.
 
 ## Vídeos
 
@@ -37,6 +49,7 @@
 - [Cabeça frontal de Proko](https://youtu.be/z4ZLkyTuX_w)
 - [Cabeça lateral de Proko](https://youtu.be/yS6R2l8t8wo)
 - [Cabeça em ângulos extremos de Proko](https://youtu.be/PgK90TpV5fA)
+- [O choque do novo](https://www.youtube.com/watch?v=HLBKgNh0ciA)
 
 ## Artigos
 
@@ -47,3 +60,4 @@
 - [Perspectiva em jogos](https://www.nintendoblast.com.br/2022/04/super-paper-mario-wii-15-anos-blast-from-the-past.html)
 - [A ferramenta não é tão importante quanto o olhar do artista](https://www.tudointeressante.com.br/2023/02/artista-cria-desenhos-incriveis-utilizando-apenas-uma-maquina-de-escrever-e-muita-criatividade.html)
 - [Figura humana ao longo da história](https://postal.pt/edicaopapel/como-tem-evoluido-a-abordagem-da-figura-humana-nas-artes-visuais-por-saul-neves-de-jesus/)
+- [Mulheres no Bahaus](https://www.archdaily.com.br/br/990228/coletivo-de-artistas-revive-a-historia-das-mulheres-no-movimento-bauhaus)
