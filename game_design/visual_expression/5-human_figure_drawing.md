@@ -1,6 +1,20 @@
 <!-- markdownlint-disable MD033 -->
 # Desenho da figura humana
 
+## Índice
+
+- [Desenho da figura humana](#desenho-da-figura-humana)
+  - [Índice](#índice)
+  - [Modelo canônico](#modelo-canônico)
+  - [Cabeça](#cabeça)
+    - [Proporções do rosto](#proporções-do-rosto)
+  - [Cabelo](#cabelo)
+    - [3 formas de Hallawell para observar o cabelo](#3-formas-de-hallawell-para-observar-o-cabelo)
+  - [O corpo humano](#o-corpo-humano)
+    - [Figura humana em movimento](#figura-humana-em-movimento)
+    - [Escorço](#escorço)
+    - [Simplificação da figura humana](#simplificação-da-figura-humana)
+
 ## Modelo canônico
 
 - O termo vem do grego *Kanon*, que caracteriza a existência de um conjunto padrão de modelos ou regras que dizem respeito a um determinado assunto.

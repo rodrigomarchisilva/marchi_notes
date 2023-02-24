@@ -1,6 +1,32 @@
 <!-- markdownlint-disable MD033 -->
 # Desenho de observação
 
+## Índice
+
+- [Desenho de observação](#desenho-de-observação)
+  - [Índice](#índice)
+  - [Escrevendo a realidade observada](#escrevendo-a-realidade-observada)
+    - [Como a observação no desenho vai além de enxergar](#como-a-observação-no-desenho-vai-além-de-enxergar)
+    - [Importância do desenho de observação na expressão visual](#importância-do-desenho-de-observação-na-expressão-visual)
+  - [Enquadramento](#enquadramento)
+    - [Enquadrando com as mãos](#enquadrando-com-as-mãos)
+    - [Enquadrando com um visor](#enquadrando-com-um-visor)
+    - [Enquadrando com um visor com grid](#enquadrando-com-um-visor-com-grid)
+    - [Enquadramento com o lápis](#enquadramento-com-o-lápis)
+  - [Esboço](#esboço)
+    - [Composição básica](#composição-básica)
+    - [Forma e contraforma](#forma-e-contraforma)
+    - [Perspectiva linear](#perspectiva-linear)
+    - [Formas circulares e cilíndricas, formas complexas e orgânicas](#formas-circulares-e-cilíndricas-formas-complexas-e-orgânicas)
+  - [Acabamento](#acabamento)
+    - [Luz e sombra](#luz-e-sombra)
+    - [Texturas e hachuras](#texturas-e-hachuras)
+    - [Aplicação do princípio gradiente, subtrativo e tonal](#aplicação-do-princípio-gradiente-subtrativo-e-tonal)
+      - [Em representações monotonais](#em-representações-monotonais)
+      - [Em representações coloridas](#em-representações-coloridas)
+      - [Em representações hachuradas](#em-representações-hachuradas)
+  - [Natureza morta](#natureza-morta)
+
 ## Escrevendo a realidade observada
 
 - Aprender a desenhar depende essencialmente da prática da **observação** – desenhe portanto quanto puder, e utilize continuamente os seus olhos (HUNTLY, 1980. p. 4).
