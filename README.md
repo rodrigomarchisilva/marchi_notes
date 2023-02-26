@@ -16,6 +16,7 @@
       - [🎮 Game Design](#-game-design)
       - [🖥️ Systems Analysis and Development (SAD)](#️-systems-analysis-and-development-sad)
       - [🌐 Web Basics](#-web-basics)
+      - [🎨 Web Design](#-web-design)
   - [:brazil: Versão em Português](#brazil-versão-em-português)
     - [👋 Sobre](#-sobre)
     - [👑 Recursos mais úteis](#-recursos-mais-úteis)
@@ -27,6 +28,7 @@
       - [🎮 Design de Jogos](#-design-de-jogos)
       - [🖥️ Análise e Desenvolvimento de Sistemas (ADS)](#️-análise-e-desenvolvimento-de-sistemas-ads)
       - [🌐 Básico de Web](#-básico-de-web)
+      - [🎨 Design de Web](#-design-de-web)
 
 ## :us: English Version
 
@@ -58,6 +60,7 @@ Main folders:
 - [Game Design](game_design)
 - [Systems and Analysis Development (SAD)](systems_analysis_&_development)
 - [Web Basics](web_basics)
+- [Web Design](web_design)
 
 #### 🗃️ Database
 
@@ -118,6 +121,13 @@ Web basics or generic content that can be used in any web project:
   - [HTML](web_basics/html)
   - [CSS](web_basics/css)
   - [Regex](web_basics/regex)
+
+#### 🎨 Web Design
+
+Web Design related content:
+
+- [Web Design](web_design)
+  - [Creating a Design](web_design/creating_a_design)
 
 ## :brazil: Versão em Português
 
@@ -209,3 +219,10 @@ Conteúdo básico de web ou conteúdo genérico que pode ser usado em qualquer p
   - [HTML](web_basics/html)
   - [CSS](web_basics/css)
   - [Regex](web_basics/regex)
+
+#### 🎨 Design de Web
+
+Conteúdo relacionado a Design de Web:
+
+- [Design de Web](web_design)
+  - [Criando um Design](web_design/creating_a_design)
