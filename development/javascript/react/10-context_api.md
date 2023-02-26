@@ -278,6 +278,15 @@ export const POSTS_LOADING = 'POSTS_LOADING';
 export const POSTS_SUCCESS = 'POSTS_SUCCESS';
 ~~~
 
+> **Note:** You might want to use the context name as the type prefix, to make it easier to identify the context while debugging.
+
+~~~js
+const prefix = 'PostsContext/';
+
+export const POSTS_LOADING = `${prefix}POSTS_LOADING`;
+export const POSTS_SUCCESS = `${prefix}POSTS_SUCCESS`;
+~~~
+
 ### ExampleProvider/data.js
 
 ~~~js
