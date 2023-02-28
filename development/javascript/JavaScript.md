@@ -13,6 +13,7 @@
     - [nullish coalescing operator](#nullish-coalescing-operator)
     - [slice](#slice)
     - [Short-circuiting](#short-circuiting)
+    - [Checking a group of conditionals](#checking-a-group-of-conditionals)
   - [2. Objects](#2-objects)
     - [Copying objects](#copying-objects)
     - [Object vectors](#object-vectors)
@@ -200,6 +201,17 @@ const funcA = () => false;
 const funcB = () => 42;
 const circuit4 = funcA() || funcB(); // 42
 const circuit5 = funcA() && funcB(); // false
+~~~
+
+### Checking a group of conditionals
+
+~~~js
+  const conditionalsNotMet = [
+    !conditionOne,
+    !conditionTwo,
+    !conditionThree,
+    !conditionFour,
+  ].filter((x) => x).length;
 ~~~
 
 ## 2. Objects
