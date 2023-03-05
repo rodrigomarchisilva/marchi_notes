@@ -32,3 +32,7 @@ const input = [
 ];
 
 console.log(maxMin(5, input));
+
+// Expected output: 1335
+
+// https://www.hackerrank.com/challenges/angry-children/problem
