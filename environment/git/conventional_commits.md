@@ -290,6 +290,12 @@ BREAKING CHANGES:
 :camera_flash: test(snapshot):
 ~~~
 
+* Add or update coverage config :chart_with_upwards_trend:
+
+~~~properties
+:chart_with_upwards_trend: test(coverage):
+~~~
+
 ---
 
 ## Git
